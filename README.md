@@ -334,4 +334,4 @@ Senior Backend → Principal Hybrid Engineer Journey
 
 ---
 
-**Built with ⚡ performance in mind | Part of the Kimo Master Blueprint**
+**Built with ⚡ performance in mind **
