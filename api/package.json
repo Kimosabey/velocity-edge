@@ -1,0 +1,21 @@
+{
+  "name": "velocity-edge-backend",
+  "version": "1.0.0",
+  "description": "Simulated slow backend API for edge caching demonstration",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": ["edge-caching", "varnish", "performance"],
+  "author": "Kimo",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
