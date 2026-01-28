@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Outfit', system-ui, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  --bg-primary: #393646;
+  --bg-secondary: #4F4557;
+  --accent-muted: #6D5D6E;
+  --text-primary: #F4EEE0;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Elegant Dark Theme Background */
+.app {
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(79, 69, 87, 0.4) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(109, 93, 110, 0.3) 0%, transparent 40%);
+  padding-bottom: 4rem;
+}
+
+/* Modern Card Design - Floating "Island" Style */
+.glass-card {
+  background: rgba(79, 69, 87, 0.4) !important;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(244, 238, 224, 0.08) !important;
+  border-radius: 20px !important;
+  box-shadow:
+    0 4px 24px -1px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card:hover {
+  background: rgba(79, 69, 87, 0.5) !important;
+  border-color: rgba(244, 238, 224, 0.15) !important;
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 32px -2px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset !important;
+}
+
+/* Text Colors */
+.mantine-Text-root {
+  color: var(--text-primary) !important;
+}
+
+.mantine-Title-root {
+  color: var(--text-primary) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+}
+
+.glass-card .mantine-Text-root[data-dimmed] {
+  color: rgba(244, 238, 224, 0.6) !important;
+}
+
+/* Customizing Progress Bars */
+.mantine-Progress-root {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Smooth Buttons */
+button {
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-muted);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+
+  /* Reduce huge headings on mobile */
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  /* Adjust padding inside cards */
+  .mantine-Card-root {
+    padding: 1rem !important;
+  }
+
+  /* Stack buttons nicely if they overflow */
+  .mantine-Group-root>button {
+    flex: 1;
+    /* full width buttons on small screens */
+  }
+
+  /* Make header stack vertically if needed */
+  .header-group {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 1rem;
+  }
+
+  /* Adjust metrics grid gap */
+  .mantine-Grid-root {
+    gap: 1rem !important;
+  }
+}
