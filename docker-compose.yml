@@ -1,0 +1,35 @@
+services:
+  # ⚡ Varnish Edge Cache Layer
+  varnish:
+    image: varnish:stable
+    container_name: velocity-edge-cache
+    ports:
+      - "8081:80"
+    volumes:
+      - ./varnish/default.vcl:/etc/varnish/default.vcl:ro
+    environment:
+      - VARNISH_SIZE=256M
+    depends_on:
+      - backend
+    networks:
+      - velocity-network
+    restart: unless-stopped
+
+  # 🐢 Slow Backend API (Simulated Legacy System)
+  backend:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: velocity-backend
+    expose:
+      - "3000"
+    environment:
+      - NODE_ENV=production
+      - SIMULATED_DELAY=5000
+    networks:
+      - velocity-network
+    restart: unless-stopped
+
+networks:
+  velocity-network:
+    driver: bridge
