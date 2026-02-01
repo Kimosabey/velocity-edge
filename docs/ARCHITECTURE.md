@@ -1,8 +1,10 @@
-# 🏗️ System Architecture
+# 🏗️ System Architecture: VelocityEdge
 
 ## 1. High-Level Design (HLD)
 
 VelocityEdge implements the **L7 Edge Caching Pattern** using **Varnish**. It sits in front of standard APIs to intercept traffic, offloading 99% of read requests from the backend database.
+
+![Architecture](./assets/architecture.png)
 
 ```mermaid
 graph TD
@@ -73,4 +75,4 @@ The Dashboard doesn't just guess; it measures.
 When a cache item expires, thousands of users might requesting it simultaneously. Varnish implements **Request Coalescing**: it sends *one* request to the backend, puts the other 999 users on hold, updates the cache, and then serves everyone. This prevents DB spikes.
 
 ### Grace Mode (High Availability)
-If the Node.js backend crashes, Varnish is configured (`beresp.grace`) to continue serving the "stale" content for up to 1 hour. This turns a **P0 Outage** into a minor "Data Staleness" incident.
+If the Node.js backend crashes, Varnish is configured (`beresp.grace`) to continue serving the "stale" content for up to 1 hour. This turns a **L0 Outage** into a minor "Data Staleness" incident.

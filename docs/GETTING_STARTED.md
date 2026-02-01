@@ -1,8 +1,12 @@
-# 🚀 Getting Started with VelocityEdge
+# 🚀 Getting Started: VelocityEdge
 
 > **Prerequisites**
 > *   **Docker Desktop** (Engine + Compose)
 > *   **Node.js 18+**
+
+![Dashboard Preview](./assets/dashboard-preview.png)
+
+---
 
 ## 1. Environment Setup
 

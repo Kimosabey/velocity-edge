@@ -1,8 +1,12 @@
-# 🛡️ Failure Scenarios & Resilience
+# 🛡️ Failure Scenarios & Resilience: VelocityEdge
 
 > "The Cache is the shield. The Backend is the castle."
 
 This document details how Varnish protects the backend from traffic spikes and outages.
+
+![Workflow](./assets/sytem-flow.png)
+
+---
 
 ## 1. Failure Matrix
 
