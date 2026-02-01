@@ -1,8 +1,8 @@
 # VelocityEdge
 
-![Performance](docs/assets/performance.png)
+![Hero](docs/assets/hero_main.png)
 
-## High-Performance Edge Caching
+## High-Performance Edge Caching with Varnish
 
 <div align="center">
 
@@ -31,15 +31,15 @@ docker-compose up -d --build
 ## 📸 Demo & Architecture
 
 ### Real-Time Dashboard
-![Dashboard](docs/assets/dashboard-preview.png)
+![Dashboard](docs/assets/dashboard.png)
 *Compare "Direct" vs "Edge" latency in real-time.*
 
-### Architecture Flow
-![System Flow](docs/assets/sytem-flow.png)
+### System Architecture
+![Architecture](docs/assets/architecture.png)
 *Client -> Varnish (Hit?) -> Node.js -> DB*
 
-### Cache Logic
-![Cache Flow](docs/assets/cache-flow.png)
+### Caching Workflow
+![Workflow](docs/assets/workflow.png)
 *Visualizing the VCL decision tree (Receive -> Lookup -> Deliver)*
 
 > **Deep Dive**: See [ARCHITECTURE.md](./docs/ARCHITECTURE.md) for the VCL script.
@@ -52,6 +52,16 @@ docker-compose up -d --build
 *   **🛡️ Thundering Herd Protection**: Coalesces concurrent requests to spare the Database.
 *   **🧟 Grace Mode**: Serves "Stale" content if the backend crashes (Automatic High Availability).
 *   **🧠 Programmable Edge**: Uses VCL to strip cookies, rewrite headers, and route traffic.
+
+---
+
+## 🏗️ The Protective Journey
+
+1.  **Intercept**: User requests `/api/data`.
+2.  **Lookup**: Varnish checks in-memory hash map.
+3.  **Hit**: If found, return instantly (<1ms).
+4.  **Miss**: If missing, fetch from Node.js (500ms), store in RAM, and return.
+5.  **Protect**: If 1000 users ask for the same missing key, Varnish makes **1** request to Node.js.
 
 ---
 
@@ -80,8 +90,13 @@ docker-compose up -d --build
 ## 👤 Author
 
 **Harshan Aiyappa**  
-Senior Full-Stack Hybrid Engineer  
-[GitHub Profile](https://github.com/Kimosabey)
+Senior Full-Stack Hybrid AI Engineer  
+Voice AI • Distributed Systems • Infrastructure
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-kimo--nexus.vercel.app-00C7B7?style=flat&logo=vercel)](https://kimo-nexus.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Kimosabey-black?style=flat&logo=github)](https://github.com/Kimosabey)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Harshan_Aiyappa-blue?style=flat&logo=linkedin)](https://linkedin.com/in/harshan-aiyappa)
+[![X](https://img.shields.io/badge/X-@HarshanAiyappa-black?style=flat&logo=x)](https://x.com/HarshanAiyappa)
 
 ---
 
